@@ -1,0 +1,306 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$mobile:500px;
+@mixin mobile {
+    @media(max-width: #{$mobile}){
+        @content
+    }
+};
+section{
+    width: 100%;
+    height: auto ;
+    min-height: 100vh;
+    .header{
+        width: 100%;
+        height: 30vh;
+        background-color: #2b92e4;
+        .title{
+            width: 30%;
+            height: 100%;
+            margin: auto;
+            
+            text-align: center;
+            padding-top: 30px;
+            color: white;
+            svg{
+                font-size: 5.5rem;
+            }
+            h1{
+                font-size: 2.1rem;
+            }
+        }
+    }
+    .shop{
+        width: 100%;
+        margin-top: 30px;
+        height: auto;
+        min-height: 60vh;
+        display: flex;
+        justify-content: space-between;
+        .groceries{
+            width: 50%;
+            height: auto;
+            min-height: inherit;
+            @include mobile(){
+                width: 45%;
+            }
+            .about{
+                width: 100%;
+                text-align: center;
+                @include mobile(){
+                    margin-bottom: 30px;
+                }
+                h2{
+                    font-size:1.8rem ;
+                }
+            }
+            
+            .grocery{
+                width: 100%;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                // justify-content: center;
+                padding-left: 50px;
+                border: 1px solid gray;
+                @include mobile(){
+                    padding-left: 5px;
+                }
+                .select{
+                    button{
+                        width: 25px;
+                        height: 25px;
+                        outline: none;
+                        background: none;
+                        border:none;
+                        cursor: pointer;
+                        
+                        svg{
+                            font-size: 1.5rem;
+                            color: #ff5693;
+                            // display: none;
+
+                        }
+                    }
+                    button.active{
+                        svg{
+                            display: inline;
+                        }
+                    }
+                }
+                .item_name{
+                    margin-left: 30px;
+                    @include mobile(){
+                        margin-left: 5px;
+                    }
+                    h2{
+                        font-size: 1.9rem;
+                        font-weight: 100;
+                    }
+                }
+               
+            }
+        }
+        .basket{
+            width: 45%;
+            height: auto;
+            min-height: inherit;
+            @include mobile(){
+                width: 55%;
+            }
+            .headerr{
+                width: 70%;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @include mobile(){
+                    width: 90%;
+                    margin-bottom: 20px;
+                }
+            h2{
+                text-align: center;
+                font-size: 1.8rem;
+            }
+            button{
+                background-color: salmon;
+                color: white;
+                outline: none;
+                border-radius: 5px;
+                border: none;
+                height: 30px;
+                padding: 0 5px;
+                cursor: pointer;
+                font-size: 1.2rem;
+                @include mobile(){
+                     height: auto;
+                    
+                }
+            }
+        }
+            .bucket-div{
+                width: 70%;
+                height: auto;
+                min-height: 200px;
+                margin: auto;
+                border: 1px solid gray;
+                padding-top: 20px;
+                @include mobile(){
+                    width: 90%;
+                }
+                .item-choosen{
+                    width: 100%;
+                    height: 30px;
+                   display: flex;
+                   justify-content: space-between;
+                   align-items: center;
+                    padding: 0 20px;
+                    margin: 10px 0;
+                    @include mobile(){
+                        margin: 20px 0;
+                        border: 1px solid gray;
+                        height: auto;
+                        padding: 0 5px;
+                    }
+                    h4{
+                        font-size: 1.5rem;
+                    }
+                    svg{
+                        color: #2b92e4;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .total{
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+                margin: 20px auto;
+            }
+        }
+    }
+}
+.actions{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    .action{
+        width: inherit;
+        height: inherit;
+        position: relative;
+       
+        .select-grocery{
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            .cross{
+                width: 100%;
+                height:10%;
+                text-align: end;
+              button{
+                  margin: 5px 5px 0 0;
+                  background: none;
+                  outline: none;
+                  border: none;
+                  cursor: pointer;
+                  svg{
+                      color: rgb(245, 87, 70);
+                      font-size: 1.4rem;
+                  }
+              }
+            }
+            .menu{
+                width: 100%;
+                height:20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h2{
+                    font-size: 2.6rem;
+                }
+            }
+            .quantity-price{
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                .quantity{
+                    display: flex;
+                    flex-direction: column;
+                    .title{
+                        margin-bottom: 10px;
+                        h4{
+                            font-size: 1.4rem;
+                        }
+                    }
+                    .button-input{
+                        display: flex;
+                    button{
+                        width: 30px;
+                        height: 30px;
+                        svg{
+                            font-size: 1.2rem;
+                        }
+                    }
+                    input[type=number]{
+                        width: 60px;
+                        height: 30px;
+                        outline: none;
+                        font-size: 1.3rem;
+                        padding-left: 5px;
+                    }
+                }
+                }
+                .price{
+                    // width: 100px;
+                    // height: 30px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    .title{
+                        margin-bottom: 10px;
+                        h4{
+                            font-size: 1.4rem;
+                        }
+                    }
+                    h3{
+                        font-size: 1.5rem;
+                        font-weight: 100;
+                    }
+                }
+            }
+            .add-to-basket{
+                width: 100%;
+                height:20% ;
+                button{
+                    width: 100%;
+                    height: 100%;
+                    background-color: #2b92e4;
+                    color: white;
+                    font-size: 1.3rem;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                button.btn-disable{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+.actions.disabled{
+    display: none;
+}
